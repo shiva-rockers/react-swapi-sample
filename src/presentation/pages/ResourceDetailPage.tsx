@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useResourceStore } from '../../application/stores/resourceStore';
 import {
     Card,
@@ -114,19 +114,23 @@ const ResourceAdditionalInfo = ({
         </Title>
         <Group spacing="md" mt="xs" mb="md">
             <Text>
-                {LABELS.HEIGHT_PREFIX}{' '}
+                {LABELS.HEIGHT_PREFIX}
                 <strong>
                     {height} {LABELS.HEIGHT_UNIT}
                 </strong>
             </Text>
             <Text>
-                {LABELS.MASS_PREFIX}{' '}
+                {LABELS.MASS_PREFIX}
                 <strong>
                     {mass} {LABELS.MASS_UNIT}
                 </strong>
             </Text>
+
             <Text>
-                {LABELS.HOME_WORLD_PREFIX} <strong>{homeworld}</strong>
+                {LABELS.HOME_WORLD_PREFIX}
+                <Link to={homeworld} target="_blank">
+                    <strong>{homeworld}</strong>
+                </Link>
             </Text>
         </Group>
     </>

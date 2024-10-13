@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Resource } from '../../domain/entities/Resource';
 import { ResourceRepository } from '../../domain/repositories/ResourceRepository';
 
-const PEOPLE_PAGE_OFFSET = 1;
+const PEOPLE_PAGE_OFFSET = 6;
 
 export class ResourceApi implements ResourceRepository {
     private readonly baseUrl: string;
