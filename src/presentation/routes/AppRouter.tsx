@@ -9,7 +9,7 @@ import { PATHS } from '../../constants/path';
 const router = createBrowserRouter([
     {
         path: PATHS.HOME,
-        element: <LoginPage />
+        element: <LoginPage />,
     },
     {
         path: PATHS.RESOURCE_LIST,
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         children: [
             { path: '', element: <ResourceListPage /> },
             { path: ':id', element: <ResourceDetailPage /> },
-        ]
+        ],
     },
 ]);
 

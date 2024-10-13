@@ -4,7 +4,7 @@ export const FILTER_OPTIONS: filterOptions = {
     TALL: 'Tall (>170 cm)',
     SHORT: 'Short (>170 cm)',
     HEIGHT_THRESHOLD: 170,
-}
+};
 
 interface filterOptions {
     MALE: string;

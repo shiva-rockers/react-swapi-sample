@@ -1,7 +1,16 @@
 // src/presentation/pages/LoginPage.tsx
 import React, { useState } from 'react';
 import { useAuthStore } from '../../application/stores/authStore';
-import { Container, Card, TextInput, PasswordInput, Button, Title, Text, Alert, Space } from '@mantine/core';
+import {
+    Container,
+    Card,
+    TextInput,
+    PasswordInput,
+    Button,
+    Title,
+    Text,
+    Alert,
+} from '@mantine/core';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/path';
 import { LABELS } from '../../constants/labels';
@@ -9,14 +18,15 @@ import { LABELS } from '../../constants/labels';
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { user, login, loading, error } = useAuthStore()
+    const { user, login, loading, error } = useAuthStore();
     const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
             await login(username, password);
             navigate(PATHS.RESOURCE_LIST);
-        } catch (e) {
+        } catch (error) {
+            console.log(error);
         }
     };
 
@@ -30,7 +40,10 @@ const LoginPage = () => {
 
     return (
         <Container size={420} my={40}>
-            <Title align="center" style={{ fontFamily: 'Verdana, sans-serif', fontWeight: 700 }}>
+            <Title
+                align="center"
+                style={{ fontFamily: 'Verdana, sans-serif', fontWeight: 700 }}
+            >
                 {LABELS.WELCOME}
             </Title>
             <Text color="dimmed" size="sm" align="center" mt="sm">
@@ -54,15 +67,20 @@ const LoginPage = () => {
                     required
                 />
                 <PasswordInput
-                   label={LABELS.PASSWORD_TITLE}
-                   placeholder={LABELS.PASSWORD_PLACEHOLDER}
+                    label={LABELS.PASSWORD_TITLE}
+                    placeholder={LABELS.PASSWORD_PLACEHOLDER}
                     value={password}
                     onChange={(e) => setPassword(e.currentTarget.value)}
                     mt="md"
                     onKeyDown={handleKeyDown}
                     required
                 />
-                <Button fullWidth mt="xl" onClick={handleLogin} loading={loading}>
+                <Button
+                    fullWidth
+                    mt="xl"
+                    onClick={handleLogin}
+                    loading={loading}
+                >
                     {LABELS.LOGIN}
                 </Button>
             </Card>

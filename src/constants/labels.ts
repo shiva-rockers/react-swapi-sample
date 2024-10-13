@@ -1,12 +1,13 @@
 export const LABELS: labels = {
     APP_TITLE: 'SWAPI',
     WELCOME: 'Welcome Back',
-    LOGIN_PAGE_TITLE: 'Please enter your login credentials to access the platform.',
+    LOGIN_PAGE_TITLE:
+        'Please enter your login credentials to access the platform.',
     USERNAME: 'Username',
     USERNAME_PLACEHOLDER: 'Your username',
     USERNAME_TITLE: 'Username',
-    PASSWORD_PLACEHOLDER: "Password",
-    PASSWORD_TITLE: "Your password",
+    PASSWORD_PLACEHOLDER: 'Password',
+    PASSWORD_TITLE: 'Your password',
     LOGIN: 'Login',
     LOGOUT: 'Logout',
     RESOURCE_LIST_TITLE: 'Resource List',

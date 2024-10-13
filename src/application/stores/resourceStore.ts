@@ -26,7 +26,7 @@ export const useResourceStore = create<ResourceState>((set) => ({
 
     fetchResources: async () => {
         try {
-            set({ loading: true })
+            set({ loading: true });
             const getAllResources = new GetAllResources(new ResourceApi());
             const resources = await getAllResources.execute();
             set({ resources, error: null, loading: false });
@@ -36,7 +36,7 @@ export const useResourceStore = create<ResourceState>((set) => ({
     },
     fetchResourceById: async (id: string) => {
         try {
-            set({ loading: true })
+            set({ loading: true });
             const getResourceById = new GetResourceById(new ResourceApi());
             const resourceDetail = await getResourceById.execute(id);
             set({ resourceDetail, error: null, loading: false });
@@ -46,8 +46,10 @@ export const useResourceStore = create<ResourceState>((set) => ({
     },
     fetchResourceEnrichment: async (id: string) => {
         try {
-            set({ loadingResourceEnrichment: true })
-            const getResourceEnrichment = new GetResourceEnrichment(new ResourceApi());
+            set({ loadingResourceEnrichment: true });
+            const getResourceEnrichment = new GetResourceEnrichment(
+                new ResourceApi()
+            );
             const enrichmentData = await getResourceEnrichment.execute(id);
             set((state) => ({
                 resourceDetail: {
@@ -55,10 +57,13 @@ export const useResourceStore = create<ResourceState>((set) => ({
                     ...enrichmentData,
                 } as Resource,
                 error: null,
-                loadingResourceEnrichment: false
+                loadingResourceEnrichment: false,
             }));
         } catch (error) {
-            set({ error: (error as Error).message, loadingResourceEnrichment: false });
+            set({
+                error: (error as Error).message,
+                loadingResourceEnrichment: false,
+            });
         }
     },
 }));
