@@ -100,10 +100,9 @@ const ResourceListPage = () => {
         });
     };
 
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newSearch = event.currentTarget.value;
-        setSearch(newSearch);
-        updateSearchParams({ search: newSearch, page: '1' });
+    const handleSearchChange = (value: string) => {
+        setSearch(value);
+        updateSearchParams({ search: value, page: '1' });
     };
 
     const handleFilterChange = (value: string) => {
@@ -164,10 +163,10 @@ const ResourceListPage = () => {
                         handleSearchChange={handleSearchChange}
                         handleFilterChange={handleFilterChange}
                         handleSortChange={handleSortChange}
-                        handleClearFilters={handleClearFilters}
                         handleClearSearch={handleClearSearch}
                         handleClearFilter={handleClearFilter}
                         handleClearSort={handleClearSort}
+                        handleClearFilters={handleClearFilters}
                     />
                     <Grid gutter="lg">
                         {memoizedResources

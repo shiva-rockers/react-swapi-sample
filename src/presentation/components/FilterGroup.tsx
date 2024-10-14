@@ -3,12 +3,13 @@ import { IconX, IconSearch } from '@tabler/icons-react';
 import { LABELS } from '../../constants/labels';
 import { FILTER_OPTIONS } from '../../constants/filtersOptions';
 import { SORT_OPTIONS } from '../../constants/sortOptions';
+import { useRef } from 'react';
 
 interface FilterGroupProps {
     search: string;
     filter: string | null;
     sort: string | null;
-    handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    handleSearchChange: (event: string) => void;
     handleFilterChange: (event: string) => void;
     handleSortChange: (event: string) => void;
     handleClearFilters: () => void;
@@ -18,12 +19,19 @@ interface FilterGroupProps {
 }
 
 const FilterGroup = (props: FilterGroupProps) => {
+    const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.currentTarget.value;
+        props.handleSearchChange(value);
+    };
+
     return (
         <Group position="center" mb="lg" mt="sm" spacing="md">
             <TextInput
                 placeholder={LABELS.SEARCH_PLACEHOLDER}
                 value={props.search}
-                onChange={props.handleSearchChange}
+                onChange={handleSearchChange}
                 size="md"
                 rightSection={
                     props.search ? (
