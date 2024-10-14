@@ -1,4 +1,3 @@
-// src/application/stores/resourceStore.ts
 import { create } from 'zustand';
 import { Resource } from '../../domain/entities/Resource';
 import { GetAllResources } from '../usecases/GetAllResources';
@@ -29,9 +28,16 @@ export const useResourceStore = create<ResourceState>((set) => ({
             set({ loading: true });
             const getAllResources = new GetAllResources(new ResourceApi());
             const resources = await getAllResources.execute();
-            set({ resources, error: null, loading: false });
+            set({
+                resources,
+                error: null,
+                loading: false,
+            });
         } catch (error) {
-            set({ error: (error as Error).message, loading: false });
+            set({
+                error: (error as Error).message,
+                loading: false,
+            });
         }
     },
     fetchResourceById: async (id: string) => {
@@ -39,17 +45,24 @@ export const useResourceStore = create<ResourceState>((set) => ({
             set({ loading: true });
             const getResourceById = new GetResourceById(new ResourceApi());
             const resourceDetail = await getResourceById.execute(id);
-            set({ resourceDetail, error: null, loading: false });
+            set({
+                resourceDetail,
+                error: null,
+                loading: false,
+            });
         } catch (error) {
-            set({ error: (error as Error).message, loading: false });
+            set({
+                error: (error as Error).message,
+                loading: false,
+            });
         }
     },
     fetchResourceEnrichment: async (id: string) => {
         try {
-            set({ loadingResourceEnrichment: true });
-            const getResourceEnrichment = new GetResourceEnrichment(
-                new ResourceApi()
-            );
+            set({
+                loadingResourceEnrichment: true,
+            });
+            const getResourceEnrichment = new GetResourceEnrichment(new ResourceApi());
             const enrichmentData = await getResourceEnrichment.execute(id);
             set((state) => ({
                 resourceDetail: {

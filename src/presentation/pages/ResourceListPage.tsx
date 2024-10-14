@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useResourceStore } from '../../application/stores/resourceStore';
 import { Container, Grid, Pagination, Title, Alert } from '@mantine/core';
 import { useSearchParams } from 'react-router-dom';
@@ -16,9 +16,7 @@ const ResourceListPage = () => {
     const { resources, fetchResources, error, loading } = useResourceStore();
     const [searchParams, setSearchParams] = useSearchParams();
     const [filteredResources, setFilteredResources] = useState(resources);
-    const [currentPage, setCurrentPage] = useState(
-        Number(searchParams.get(COMMON_CONSTANTS.PAGE_PARAM)) || 1
-    );
+    const [currentPage, setCurrentPage] = useState(Number(searchParams.get(COMMON_CONSTANTS.PAGE_PARAM)) || 1);
 
     const searchQuery = searchParams.get(COMMON_CONSTANTS.SEARCH_PARAM) || '';
     const filterQuery = searchParams.get(COMMON_CONSTANTS.FILTER_PARAM) || '';
@@ -42,15 +40,9 @@ const ResourceListPage = () => {
                     case FILTER_OPTIONS.FEMALE:
                         return resource.gender === filter.toLowerCase();
                     case FILTER_OPTIONS.TALL:
-                        return (
-                            parseInt(resource.height) >
-                            FILTER_OPTIONS.HEIGHT_THRESHOLD
-                        );
+                        return parseInt(resource.height) > FILTER_OPTIONS.HEIGHT_THRESHOLD;
                     case FILTER_OPTIONS.SHORT:
-                        return (
-                            parseInt(resource.height) <=
-                            FILTER_OPTIONS.HEIGHT_THRESHOLD
-                        );
+                        return parseInt(resource.height) <= FILTER_OPTIONS.HEIGHT_THRESHOLD;
                     default:
                         return true;
                 }
@@ -58,9 +50,7 @@ const ResourceListPage = () => {
         }
 
         if (search) {
-            filtered = filtered.filter((resource) =>
-                resource.name.toLowerCase().includes(search.toLowerCase())
-            );
+            filtered = filtered.filter((resource) => resource.name.toLowerCase().includes(search.toLowerCase()));
         }
 
         if (sort) {
@@ -81,10 +71,7 @@ const ResourceListPage = () => {
         setFilteredResources(filtered);
     }, [resources, search, filter, sort]);
 
-    const memoizedResources = useMemo(
-        () => filteredResources,
-        [filteredResources]
-    );
+    const memoizedResources = useMemo(() => filteredResources, [filteredResources]);
 
     const updateSearchParams = (params: Record<string, string | undefined>) => {
         setSearchParams((prev) => {
@@ -102,22 +89,33 @@ const ResourceListPage = () => {
 
     const handleSearchChange = (value: string) => {
         setSearch(value);
-        updateSearchParams({ search: value, page: '1' });
+        updateSearchParams({
+            search: value,
+            page: '1',
+        });
     };
 
     const handleFilterChange = (value: string) => {
         setFilter(value);
-        updateSearchParams({ filter: value, page: '1' });
+        updateSearchParams({
+            filter: value,
+            page: '1',
+        });
     };
 
     const handleSortChange = (value: string) => {
         setSort(value);
-        updateSearchParams({ sort: value, page: '1' });
+        updateSearchParams({
+            sort: value,
+            page: '1',
+        });
     };
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
-        updateSearchParams({ page: page.toString() });
+        updateSearchParams({
+            page: page.toString(),
+        });
     };
 
     const handleClearSearch = () => {
@@ -169,22 +167,12 @@ const ResourceListPage = () => {
                         handleClearFilters={handleClearFilters}
                     />
                     <Grid gutter="lg">
-                        {memoizedResources
-                            .slice(
-                                (currentPage - 1) * RESOURCE_PER_PAGE,
-                                currentPage * RESOURCE_PER_PAGE
-                            )
-                            .map((resource) => (
-                                <ResourceCard
-                                    key={resource.id}
-                                    resource={resource}
-                                />
-                            ))}
+                        {memoizedResources.slice((currentPage - 1) * RESOURCE_PER_PAGE, currentPage * RESOURCE_PER_PAGE).map((resource) => (
+                            <ResourceCard key={resource.id} resource={resource} />
+                        ))}
                     </Grid>
                     <Pagination
-                        total={Math.ceil(
-                            memoizedResources.length / RESOURCE_PER_PAGE
-                        )}
+                        total={Math.ceil(memoizedResources.length / RESOURCE_PER_PAGE)}
                         onChange={handlePageChange}
                         size="lg"
                         mt="lg"

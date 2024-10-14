@@ -37,13 +37,18 @@ const FilterGroup = (props: FilterGroupProps) => {
                     props.search ? (
                         <IconX
                             onClick={props.handleClearSearch}
-                            style={{ cursor: 'pointer' }}
+                            style={{
+                                cursor: 'pointer',
+                            }}
                         />
                     ) : (
                         <IconSearch />
                     )
                 }
-                style={{ flex: 1, maxWidth: '300px' }}
+                style={{
+                    flex: 1,
+                    maxWidth: '300px',
+                }}
             />
             <Select
                 placeholder={LABELS.FILTER_PLACEHOLDER}
@@ -53,7 +58,9 @@ const FilterGroup = (props: FilterGroupProps) => {
                     props.filter ? (
                         <IconX
                             onClick={props.handleClearFilter}
-                            style={{ cursor: 'pointer' }}
+                            style={{
+                                cursor: 'pointer',
+                            }}
                         />
                     ) : undefined
                 }
@@ -68,18 +75,16 @@ const FilterGroup = (props: FilterGroupProps) => {
                     props.sort ? (
                         <IconX
                             onClick={props.handleClearSort}
-                            style={{ cursor: 'pointer' }}
+                            style={{
+                                cursor: 'pointer',
+                            }}
                         />
                     ) : undefined
                 }
                 onChange={props.handleSortChange}
                 size="md"
             />
-            <Button
-                variant="outline"
-                color="gray"
-                onClick={props.handleClearFilters}
-            >
+            <Button variant="outline" color="gray" onClick={props.handleClearFilters}>
                 {LABELS.CLEAR_FILTER}
             </Button>
         </Group>

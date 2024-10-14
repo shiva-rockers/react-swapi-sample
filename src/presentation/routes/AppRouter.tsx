@@ -19,8 +19,14 @@ const router = createBrowserRouter([
             </AuthenticateRoute>
         ),
         children: [
-            { path: '', element: <ResourceListPage /> },
-            { path: ':id', element: <ResourceDetailPage /> },
+            {
+                path: '',
+                element: <ResourceListPage />,
+            },
+            {
+                path: ':id',
+                element: <ResourceDetailPage />,
+            },
         ],
     },
 ]);

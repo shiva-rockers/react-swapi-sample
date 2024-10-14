@@ -14,19 +14,16 @@ export class ResourceApi implements ResourceRepository {
     async getAllResources(): Promise<Resource[]> {
         try {
             const requests = Array.from(
-                { length: PEOPLE_PAGE_OFFSET },
-                (_, index) =>
-                    axios.get(`${this.baseUrl}/people?page=${index + 1}`)
+                {
+                    length: PEOPLE_PAGE_OFFSET,
+                },
+                (_, index) => axios.get(`${this.baseUrl}/people?page=${index + 1}`)
             );
             const responses = await Promise.all(requests);
-            const response = responses.flatMap(
-                (response) => response.data.results
-            );
+            const response = responses.flatMap((response) => response.data.results);
 
             return response.map((item: any) => {
-                const splittedUrl = item.url
-                    .split('/')
-                    .filter((str: string) => !!str);
+                const splittedUrl = item.url.split('/').filter((str: string) => !!str);
                 return {
                     id: splittedUrl[splittedUrl.length - 1],
                     name: item.name,
@@ -40,9 +37,7 @@ export class ResourceApi implements ResourceRepository {
             });
         } catch (error) {
             console.error('Error fetching resources:', error);
-            throw new Error(
-                'Failed to fetch resources. Please try again later.'
-            );
+            throw new Error('Failed to fetch resources. Please try again later.');
         }
     }
 
@@ -61,26 +56,20 @@ export class ResourceApi implements ResourceRepository {
             };
         } catch (error) {
             console.error(`Error fetching resource ${id}:`, error);
-            throw new Error(
-                'Failed to fetch resource details. Please try again later.'
-            );
+            throw new Error('Failed to fetch resource details. Please try again later.');
         }
     }
 
     async getResourceEnrichment(id: string): Promise<Partial<Resource>> {
         try {
             const response = await axios.get(`${this.baseUrl}/people/${id}`);
-            const films = await Promise.all(
-                response.data.films.map((filmUrl: string) =>
-                    axios.get(filmUrl).then((res) => res.data.title)
-                )
-            );
-            return { relatedFilms: films };
+            const films = await Promise.all(response.data.films.map((filmUrl: string) => axios.get(filmUrl).then((res) => res.data.title)));
+            return {
+                relatedFilms: films,
+            };
         } catch (error) {
             console.error('Error fetching enrichment data:', error);
-            throw new Error(
-                'Failed to fetch enrichment data. Please try again later.'
-            );
+            throw new Error('Failed to fetch enrichment data. Please try again later.');
         }
     }
 }

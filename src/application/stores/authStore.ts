@@ -24,13 +24,17 @@ export const useAuthStore = create<AuthState>((set) => ({
             set({ loading: true });
             const loginUser = new LoginUser(new AuthApi());
             const user = await loginUser.execute(username, password);
-            localStorage.setItem(
-                COMMON_CONSTANTS.AUTH_USER,
-                JSON.stringify(user)
-            );
-            set({ user, loading: false, error: null });
+            localStorage.setItem(COMMON_CONSTANTS.AUTH_USER, JSON.stringify(user));
+            set({
+                user,
+                loading: false,
+                error: null,
+            });
         } catch (error) {
-            set({ loading: false, error: (error as Error).message });
+            set({
+                loading: false,
+                error: (error as Error).message,
+            });
             throw error;
         }
     },

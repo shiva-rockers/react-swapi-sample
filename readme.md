@@ -3,15 +3,16 @@
 This project is a **React** application structured using **Clean Architecture** principles. The application leverages **Mantine UI** for styling, **React Router** for routing, **Zustand** for state management, and **React Query** for data fetching. This README provides an overview of the project structure, details on how it works, and instructions for setting up and running the project in a development environment.
 
 ## Table of Contents
-- [SWAPI](#swapi)
-  - [Table of Contents](#table-of-contents)
-  - [Project Structure](#project-structure)
-    - [How It Works](#how-it-works)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-    - [Running the Project](#running-the-project)
-    - [Demo](#demo)
+
+-   [SWAPI](#swapi)
+    -   [Table of Contents](#table-of-contents)
+    -   [Project Structure](#project-structure)
+        -   [How It Works](#how-it-works)
+    -   [Getting Started](#getting-started)
+        -   [Prerequisites](#prerequisites)
+        -   [Installation](#installation)
+        -   [Running the Project](#running-the-project)
+        -   [Demo](#demo)
 
 ## Project Structure
 
@@ -76,6 +77,7 @@ yarn start
 ```
 
 ### Demo
+
 url: https://effulgent-alpaca-c0490b.netlify.app
 username: admin
 password: password

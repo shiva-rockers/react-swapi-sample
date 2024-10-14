@@ -1,16 +1,6 @@
-// src/presentation/pages/LoginPage.tsx
 import React, { useState } from 'react';
 import { useAuthStore } from '../../application/stores/authStore';
-import {
-    Container,
-    Card,
-    TextInput,
-    PasswordInput,
-    Button,
-    Title,
-    Text,
-    Alert,
-} from '@mantine/core';
+import { Container, Card, TextInput, PasswordInput, Button, Title, Text, Alert } from '@mantine/core';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { PATHS } from '../../constants/path';
 import { LABELS } from '../../constants/labels';
@@ -42,7 +32,10 @@ const LoginPage = () => {
         <Container size={420} my={40}>
             <Title
                 align="center"
-                style={{ fontFamily: 'Verdana, sans-serif', fontWeight: 700 }}
+                style={{
+                    fontFamily: 'Verdana, sans-serif',
+                    fontWeight: 700,
+                }}
             >
                 {LABELS.WELCOME}
             </Title>
@@ -75,12 +68,7 @@ const LoginPage = () => {
                     onKeyDown={handleKeyDown}
                     required
                 />
-                <Button
-                    fullWidth
-                    mt="xl"
-                    onClick={handleLogin}
-                    loading={loading}
-                >
+                <Button fullWidth mt="xl" onClick={handleLogin} loading={loading}>
                     {LABELS.LOGIN}
                 </Button>
             </Card>

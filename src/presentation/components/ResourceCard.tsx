@@ -13,9 +13,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
         <Grid.Col key={resource.id} xs={12} sm={6} md={4}>
             <Card shadow="sm" p="lg" radius="md" withBorder>
                 <Title order={3} size="h5" mb="xs">
-                    <Link to={`${PATHS.RESOURCE_DETAIL(resource.id)}`}>
-                        {resource.name}
-                    </Link>
+                    <Link to={`${PATHS.RESOURCE_DETAIL(resource.id)}`}>{resource.name}</Link>
                 </Title>
                 <Text size="sm" color="dimmed" mb="xs">
                     {resource.description}
@@ -26,8 +24,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
                         {LABELS.GENDER_PREFIX} {resource.gender}
                     </Badge>
                     <Badge color="teal" variant="light">
-                        {LABELS.HEIGHT_PREFIX} {resource.height}{' '}
-                        {LABELS.HEIGHT_UNIT}
+                        {LABELS.HEIGHT_PREFIX} {resource.height} {LABELS.HEIGHT_UNIT}
                     </Badge>
                 </Group>
             </Card>
