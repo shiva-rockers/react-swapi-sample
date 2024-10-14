@@ -20,19 +20,19 @@ The application is structured according to **Clean Architecture** principles, or
 
 ```
 src/
-├── application/ # Business logic and application state
-│ ├── stores/ # State management using Zustand
-│ └── usecases/ # Business use cases, handling application-specific logic
-├── constants/ # Constants for paths, labels, and placeholders
-├── domain/ # Core entities and interfaces, independent of any frameworks
-│ ├── entities/ # Entity definitions (e.g., Resource)
-│ └── repositories/ # Repository interfaces, outlining data access contracts
-├── infrastructure/ # Implementation of data access, API clients, etc.
-│ └── api/ # API clients (e.g., for fetching resources)
-├── presentation/ # React components and views, the UI layer
-│ ├── components/ # Reusable components (e.g., HeaderComponent, FilterComponent)
-│ └── pages/ # Page components (e.g., ResourceListPage, LoginPage)
-└── App.tsx # Main application file with routing setup
+├── application/        # Business logic and application state
+│ ├── stores/           # State management using Zustand
+│ └── usecases/         # Business use cases, handling application-specific logic
+├── constants/          # Constants for paths, labels, and placeholders
+├── domain/             # Core entities and interfaces, independent of any frameworks
+│ ├── entities/         # Entity definitions (e.g., Resource)
+│ └── repositories/     # Repository interfaces, outlining data access contracts
+├── infrastructure/     # Implementation of data access, API clients, etc.
+│ └── api/              # API clients (e.g., for fetching resources)
+├── presentation/       # React components and views, the UI layer
+│ ├── components/       # Reusable components (e.g., HeaderComponent, FilterComponent)
+│ └── pages/            # Page components (e.g., ResourceListPage, LoginPage)
+└── App.tsx             # Main application file with routing setup
 ```
 
 ### How It Works
