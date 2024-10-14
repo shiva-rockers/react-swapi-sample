@@ -53,7 +53,7 @@ Ensure you have the following installed:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/shiva-rockers/react-swapi-sample
     ```
 2. Navigate into the project directory:
     ```
