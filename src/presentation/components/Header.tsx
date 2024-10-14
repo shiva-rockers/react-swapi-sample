@@ -1,5 +1,6 @@
-import { Button, Group, Title, Container, NavLink } from '@mantine/core';
+import { Button, Group, Title, Container } from '@mantine/core';
 import { Link } from 'react-router-dom';
+
 import { LABELS } from '../../constants/labels';
 import { PATHS } from '../../constants/path';
 

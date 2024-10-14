@@ -1,14 +1,15 @@
 import { Badge, Card, Grid, Group, Title, Text } from '@mantine/core';
-import { Resource } from '../../domain/entities/Resource';
 import { Link } from 'react-router-dom';
-import { PATHS } from '../../constants/path';
+
 import { LABELS } from '../../constants/labels';
+import { PATHS } from '../../constants/path';
+import { Resource } from '../../domain/entities/Resource';
 
 interface ResourceCardProps {
     resource: Resource;
 }
 
-const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
+const ResourceCard = ({ resource }: ResourceCardProps) => {
     return (
         <Grid.Col key={resource.id} xs={12} sm={6} md={4}>
             <Card shadow="sm" p="lg" radius="md" withBorder>

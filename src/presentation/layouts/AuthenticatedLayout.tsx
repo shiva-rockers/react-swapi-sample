@@ -1,7 +1,8 @@
 import { Outlet, useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+
 import { useAuthStore } from '../../application/stores/authStore';
 import { PATHS } from '../../constants/path';
+import Header from '../components/Header';
 
 const AuthenticatedLayout = () => {
     const logout = useAuthStore((state) => state.logout);

@@ -1,14 +1,15 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useResourceStore } from '../../application/stores/resourceStore';
 import { Container, Grid, Pagination, Title, Alert } from '@mantine/core';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import FilterGroup from '../components/FilterGroup';
-import ResourceCard from '../components/ResourceCard';
-import LoaderCard from '../components/LoaderCard';
-import { LABELS } from '../../constants/labels';
+
+import { useResourceStore } from '../../application/stores/resourceStore';
 import { COMMON_CONSTANTS } from '../../constants/common';
 import { FILTER_OPTIONS } from '../../constants/filtersOptions';
+import { LABELS } from '../../constants/labels';
 import { SORT_OPTIONS } from '../../constants/sortOptions';
+import FilterGroup from '../components/FilterGroup';
+import LoaderCard from '../components/LoaderCard';
+import ResourceCard from '../components/ResourceCard';
 
 const RESOURCE_PER_PAGE = 15;
 

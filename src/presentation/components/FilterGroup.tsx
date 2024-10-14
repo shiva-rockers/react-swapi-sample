@@ -1,9 +1,9 @@
 import { Button, Group, Select, TextInput } from '@mantine/core';
 import { IconX, IconSearch } from '@tabler/icons-react';
-import { LABELS } from '../../constants/labels';
+
 import { FILTER_OPTIONS } from '../../constants/filtersOptions';
+import { LABELS } from '../../constants/labels';
 import { SORT_OPTIONS } from '../../constants/sortOptions';
-import { useRef } from 'react';
 
 interface FilterGroupProps {
     search: string;
@@ -19,8 +19,6 @@ interface FilterGroupProps {
 }
 
 const FilterGroup = (props: FilterGroupProps) => {
-    const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
-
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.currentTarget.value;
         props.handleSearchChange(value);

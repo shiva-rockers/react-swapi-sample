@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { useAuthStore } from '../../application/stores/authStore';
 import { Container, Card, TextInput, PasswordInput, Button, Title, Text, Alert } from '@mantine/core';
+import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { PATHS } from '../../constants/path';
+
+import { useAuthStore } from '../../application/stores/authStore';
 import { LABELS } from '../../constants/labels';
+import { PATHS } from '../../constants/path';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');

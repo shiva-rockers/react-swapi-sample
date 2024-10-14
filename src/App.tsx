@@ -1,6 +1,7 @@
 import { MantineProvider } from '@mantine/core';
-import { theme } from './presentation/theme';
+
 import AppRouter from './presentation/routes/AppRouter';
+import { theme } from './presentation/theme';
 import './App.scss';
 
 export default function App() {

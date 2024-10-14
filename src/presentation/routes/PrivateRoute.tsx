@@ -1,4 +1,5 @@
 import { Navigate } from 'react-router-dom';
+
 import { useAuthStore } from '../../application/stores/authStore';
 import { PATHS } from '../../constants/path';
 

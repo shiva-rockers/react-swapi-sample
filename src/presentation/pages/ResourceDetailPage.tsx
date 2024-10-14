@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useResourceStore } from '../../application/stores/resourceStore';
 import { Card, Container, Text, Title, Badge, Group, List, Alert, Divider } from '@mantine/core';
-import LoaderCard from '../components/LoaderCard';
+import React, { useEffect, useMemo } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
+import { useResourceStore } from '../../application/stores/resourceStore';
 import { LABELS } from '../../constants/labels';
+import LoaderCard from '../components/LoaderCard';
 
 const ResourceDetailPage = () => {
     const { id } = useParams<{ id: string }>();
@@ -56,6 +57,7 @@ const ResourceTitleSection = React.memo(({ name, gender, birth_year }: { name: s
         </Group>
     </>
 ));
+ResourceTitleSection.displayName = 'ResourceTitleSection';
 
 const ResourceAdditionalInfo = React.memo(({ height, mass, homeworld }: { height: string; mass: string; homeworld: string }) => (
     <>
@@ -85,6 +87,7 @@ const ResourceAdditionalInfo = React.memo(({ height, mass, homeworld }: { height
         </Group>
     </>
 ));
+ResourceAdditionalInfo.displayName = 'ResourceAdditionalInfo';
 
 const ResourceRelatedFilms = React.memo(({ films, loading }: { films: string[]; loading: boolean }) => {
     const filmItems = useMemo(() => {
@@ -104,5 +107,7 @@ const ResourceRelatedFilms = React.memo(({ films, loading }: { films: string[]; 
         </>
     );
 });
+
+ResourceRelatedFilms.displayName = 'ResourceRelatedFilms';
 
 export default ResourceDetailPage;
