@@ -4,15 +4,15 @@ This project is a **React** application structured using **Clean Architecture** 
 
 ## Table of Contents
 
--   [SWAPI](#swapi)
-    -   [Table of Contents](#table-of-contents)
-    -   [Project Structure](#project-structure)
-        -   [How It Works](#how-it-works)
-    -   [Getting Started](#getting-started)
-        -   [Prerequisites](#prerequisites)
-        -   [Installation](#installation)
-        -   [Running the Project](#running-the-project)
-        -   [Demo](#demo)
+- [SWAPI](#swapi)
+  - [Table of Contents](#table-of-contents)
+  - [Project Structure](#project-structure)
+    - [How It Works](#how-it-works)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Running the Project](#running-the-project)
+    - [Demo](#demo)
 
 ## Project Structure
 
@@ -78,6 +78,6 @@ yarn start
 
 ### Demo
 
-url: https://effulgent-alpaca-c0490b.netlify.app
+url: https://euphonious-puppy-bf18ac.netlify.app
 username: admin
 password: password
