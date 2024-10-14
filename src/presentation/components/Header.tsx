@@ -11,7 +11,7 @@ const Header = ({ handleLogout }: { handleLogout: () => void }) => {
                 <Link to={PATHS.RESOURCE_LIST} className="link title">
                     <Title order={3}>{LABELS.APP_TITLE}</Title>
                 </Link>
-                <Button variant="outline" color="red" onClick={handleLogout}>
+                <Button variant="subtle" color="red" onClick={handleLogout}>
                     {LABELS.LOGOUT}
                 </Button>
             </Group>

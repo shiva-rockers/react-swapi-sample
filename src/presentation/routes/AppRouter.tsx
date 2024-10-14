@@ -4,6 +4,7 @@ import AuthenticateRoute from './PrivateRoute';
 import { PATHS } from '../../constants/path';
 import AuthenticatedLayout from '../layouts/AuthenticatedLayout';
 import LoginPage from '../pages/LoginPage';
+import PageNotFound from '../pages/PageNotFound';
 import ResourceDetailPage from '../pages/ResourceDetailPage';
 import ResourceListPage from '../pages/ResourceListPage';
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
                 element: <ResourceDetailPage />,
             },
         ],
+    },
+    {
+        path: '*',
+        element: <PageNotFound />,
     },
 ]);
 

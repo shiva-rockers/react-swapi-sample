@@ -12,9 +12,23 @@ interface ResourceCardProps {
 const ResourceCard = ({ resource }: ResourceCardProps) => {
     return (
         <Grid.Col key={resource.id} xs={12} sm={6} md={4}>
-            <Card shadow="sm" p="lg" radius="md" withBorder>
+            <Card
+                shadow="sm"
+                p="lg"
+                radius="md"
+                withBorder
+                sx={{
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                    '&:hover': {
+                        transform: 'scale(1.05)',
+                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+                    },
+                }}
+                component={Link}
+                to={`${PATHS.RESOURCE_DETAIL(resource.id)}`}
+            >
                 <Title order={3} size="h5" mb="xs">
-                    <Link to={`${PATHS.RESOURCE_DETAIL(resource.id)}`}>{resource.name}</Link>
+                    {resource.name}
                 </Title>
                 <Text size="sm" color="dimmed" mb="xs">
                     {resource.description}

@@ -1,5 +1,5 @@
 import { Container, Grid, Pagination, Title, Alert } from '@mantine/core';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { useResourceStore } from '../../application/stores/resourceStore';
@@ -69,10 +69,8 @@ const ResourceListPage = () => {
             });
         }
 
-        setFilteredResources(filtered);
+        setFilteredResources([...filtered]);
     }, [resources, search, filter, sort]);
-
-    const memoizedResources = useMemo(() => filteredResources, [filteredResources]);
 
     const updateSearchParams = (params: Record<string, string | undefined>) => {
         setSearchParams((prev) => {
@@ -168,12 +166,12 @@ const ResourceListPage = () => {
                         handleClearFilters={handleClearFilters}
                     />
                     <Grid gutter="lg">
-                        {memoizedResources.slice((currentPage - 1) * RESOURCE_PER_PAGE, currentPage * RESOURCE_PER_PAGE).map((resource) => (
+                        {filteredResources.slice((currentPage - 1) * RESOURCE_PER_PAGE, currentPage * RESOURCE_PER_PAGE).map((resource) => (
                             <ResourceCard key={resource.id} resource={resource} />
                         ))}
                     </Grid>
                     <Pagination
-                        total={Math.ceil(memoizedResources.length / RESOURCE_PER_PAGE)}
+                        total={Math.ceil(filteredResources.length / RESOURCE_PER_PAGE)}
                         onChange={handlePageChange}
                         size="lg"
                         mt="lg"
