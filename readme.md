@@ -18,6 +18,7 @@ This project is a **React** application structured using **Clean Architecture** 
 
 The application is structured according to **Clean Architecture** principles, organizing code by **layers**. Below is an overview of the directories and their roles:
 
+```
 src/
 ├── application/ # Business logic and application state
 │ ├── stores/ # State management using Zustand
@@ -32,6 +33,7 @@ src/
 │ ├── components/ # Reusable components (e.g., HeaderComponent, FilterComponent)
 │ └── pages/ # Page components (e.g., ResourceListPage, LoginPage)
 └── App.tsx # Main application file with routing setup
+```
 
 ### How It Works
 
