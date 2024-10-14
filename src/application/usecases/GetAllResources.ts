@@ -1,5 +1,5 @@
-import { ResourceRepository } from '../../domain/repositories/ResourceRepository';
 import { Resource } from '../../domain/entities/Resource';
+import { ResourceRepository } from '../../domain/repositories/ResourceRepository';
 
 export class GetAllResources {
     constructor(private repository: ResourceRepository) {}

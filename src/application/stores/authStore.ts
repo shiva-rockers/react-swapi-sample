@@ -1,8 +1,9 @@
 import { create } from 'zustand';
-import { AuthUser } from '../../domain/entities/AuthUser';
-import { LoginUser } from '../usecases/LoginUser';
-import { AuthApi } from '../../infrastructure/api/AuthApi';
+
 import { COMMON_CONSTANTS } from '../../constants/common';
+import { AuthUser } from '../../domain/entities/AuthUser';
+import { AuthApi } from '../../infrastructure/api/AuthApi';
+import { LoginUser } from '../usecases/LoginUser';
 
 interface AuthState {
     user: AuthUser | null;

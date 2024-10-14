@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { Resource } from '../../domain/entities/Resource';
 import { ResourceRepository } from '../../domain/repositories/ResourceRepository';
 
@@ -22,6 +23,7 @@ export class ResourceApi implements ResourceRepository {
             const responses = await Promise.all(requests);
             const response = responses.flatMap((response) => response.data.results);
 
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return response.map((item: any) => {
                 const splittedUrl = item.url.split('/').filter((str: string) => !!str);
                 return {

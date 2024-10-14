@@ -1,9 +1,10 @@
 import { create } from 'zustand';
+
 import { Resource } from '../../domain/entities/Resource';
+import { ResourceApi } from '../../infrastructure/api/ResourceApi';
 import { GetAllResources } from '../usecases/GetAllResources';
 import { GetResourceById } from '../usecases/GetResourceById';
 import { GetResourceEnrichment } from '../usecases/GetResourceEnrichment';
-import { ResourceApi } from '../../infrastructure/api/ResourceApi';
 
 interface ResourceState {
     resources: Resource[];

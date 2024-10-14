@@ -1,5 +1,5 @@
-import { AuthRepository } from '../../domain/repositories/AuthRepository';
 import { AuthUser } from '../../domain/entities/AuthUser';
+import { AuthRepository } from '../../domain/repositories/AuthRepository';
 
 export class LoginUser {
     constructor(private authRepository: AuthRepository) {}
